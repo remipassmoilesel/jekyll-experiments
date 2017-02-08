@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Notes sur Jekyll</title>
-  <meta name="description" content="Quelques notes sur Jekyll ! Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head ...">
+  <title>Installation et lancement de Jekyll</title>
+  <meta name="description" content="Installation:">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="canonical" href="http://localhost:4000/notes/2017/02/08/installation.html">
   <link rel="alternate" type="application/rss+xml" title="Notes sur Jekyll" href="/feed.xml">
   
   
@@ -66,52 +66,46 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
-  
-  
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Installation et lancement de Jekyll</h1>
+    <p class="post-meta"><time datetime="2017-02-08T11:56:22+01:00" itemprop="datePublished">Feb 8, 2017</time></p>
+  </header>
 
+  <div class="post-content" itemprop="articleBody">
+    <p>Installation:</p>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Feb 8, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/jekyll/update/2017/02/08/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Feb 8, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/notes/2017/02/08/liquid-template.html">Langage de template Liquid</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Feb 8, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/notes/2017/02/08/installation.html">Installation et lancement de Jekyll</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Feb 8, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/notes/2017/02/08/content.html">Contenu</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-
+<div class="highlighter-rouge"><pre class="highlight"><code>    $ sudo apt-get install ruby ruby-dev
+    $ sudo gem install jekyll bundler
+</code></pre>
 </div>
+
+<p>Créer un nouveau projet et le servir:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    $ jekyll new new-project
+    $ cd new-project
+    $ jekyll serve
+</code></pre>
+</div>
+
+<p>Servir avec les brouillons:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    $ jekyll serve --draft
+</code></pre>
+</div>
+
+<p>Aide pour traitement des erreurs:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    $ jekyll build --trace
+</code></pre>
+</div>
+
+
+  </div>
+
+  
+</article>
 
       </div>
     </main>

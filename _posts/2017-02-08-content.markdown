@@ -1,0 +1,36 @@
+---
+layout: post
+title:  "Contenu"
+date:   2017-02-08 11:56:22 +0100
+categories: notes 
+---
+
+Le contenu doit comporter une extension valide (.markdown, .html, ...) et être placé dans 
+* le dossier '_posts'
+* ou ailleurs dans le projet, l'arborescence sera répliquée dans '_site'
+
+Arborescence:
+
+    _config.yml         configuration globale
+    _layouts            dossier de templates
+    _includes           code partiel à utiliser avec les templates
+    _posts              contenu. Doit respecter la syntaxe: YEAR-MONTH-DAY-this-is-my-title.MARKUP
+    _drafts             brouillons, non publiés
+    _site               site statique généré
+    _data               où l'on peut stocker des données réutilisables
+    _sass               styles sass
+    
+    Tous les autres répertoires créés seront copiés dans le site statique.
+    
+L'en tête "front matter" au début des posts permet de fixer des variables:
+
+    ---
+    layout: page
+    title: About
+    permalink: /about/
+    ---
+    
+    ... 
+    
+    # {% raw %} {{ page.title }} {% endraw %}
+    

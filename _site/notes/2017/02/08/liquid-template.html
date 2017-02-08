@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Notes sur Jekyll</title>
-  <meta name="description" content="Le contenu doit comporter une extension valide (.markdown) et être placé dans le dossier _posts">
+  <title>Langage de template Liquid</title>
+  <meta name="description" content="Description complète du langage de template Liquid: http://shopify.github.io/liquid/">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/notes/2017/02/08/notes.html">
+  <link rel="canonical" href="http://localhost:4000/notes/2017/02/08/liquid-template.html">
   <link rel="alternate" type="application/rss+xml" title="Notes sur Jekyll" href="/feed.xml">
   
   
@@ -43,6 +43,14 @@
           
         
           
+          <a class="page-link" href="/pages/page1.html">Page 1</a>
+          
+        
+          
+          <a class="page-link" href="/pages/page2.html">Page 2</a>
+          
+        
+          
         
           
         
@@ -61,48 +69,12 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Notes sur Jekyll</h1>
+    <h1 class="post-title" itemprop="name headline">Langage de template Liquid</h1>
     <p class="post-meta"><time datetime="2017-02-08T11:56:22+01:00" itemprop="datePublished">Feb 8, 2017</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Le contenu doit comporter une extension valide (.markdown) et être placé dans le dossier _posts</p>
-
-<p>Installation:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>    $ sudo apt-get install ruby ruby-dev
-    $ sudo gem install jekyll bundler
-</code></pre>
-</div>
-
-<p>Créer un nouveau projet et le servir:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>    $ jekyll new new-project
-    $ cd new-project
-    $ jekyll serve
-</code></pre>
-</div>
-
-<p>Aide pour traitement des erreurs:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>    $ jekyll build --trace
-</code></pre>
-</div>
-
-<p>Arborescence:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>_config.yml         configuration globale
-_layouts            dossier de templates
-_includes           code partiel à utiliser avec les templates
-_posts              contenu. Doit respecter la syntaxe: YEAR-MONTH-DAY-this-is-my-title.MARKUP
-_drafts             brouillons, non publiés
-_site               site statique généré
-_data               où l'on peut stocker des données réutilisables
-_sass               styles sass
-
-Tous les autres répertoires créés seront copiés dans le site statique.
-</code></pre>
-</div>
+    <p>Description complète du langage de template Liquid: http://shopify.github.io/liquid/</p>
 
 <p>Pour afficher un bloc brut utiliser les marques “raw”:</p>
 
@@ -114,6 +86,16 @@ Tous les autres répertoires créés seront copiés dans le site statique.
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="err">{ site.title</span><span class="w"> </span><span class="p">}</span><span class="err">}</span><span class="w">  </span><span class="err">Notes</span><span class="w"> </span><span class="err">sur</span><span class="w"> </span><span class="err">Jekyll</span><span class="w">
 </span></code></pre>
+</div>
+
+<p>Variables disponibles: https://jekyllrb.com/docs/variables/</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>site            Sitewide information + configuration settings from _config.yml. See below for details.
+page            Page specific information + the YAML front matter. Custom variables set via the YAML Front Matter will be available here. See below for details.
+layout          Layout specific information + the YAML front matter. Custom variables set via the YAML Front Matter in layouts will be available here.
+content         In layout files, the rendered content of the Post or Page being wrapped. Not defined in Post or Page files.
+paginator       When the paginate configuration option is set, this variable becomes available for use. See Pagination for details. 
+</code></pre>
 </div>
 
 <p>L’en tête “front matter” au début des posts permet de fixer des variables:</p>
@@ -165,6 +147,24 @@ permalink: /about/
 </span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">else</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
     </span><span class="err">variable_name</span><span class="w"> </span><span class="err">doesn't</span><span class="w"> </span><span class="err">exist</span><span class="w">
 </span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">endif</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Lister les pages disponibles:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">page</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">site.pages</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+    </span><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">page.title</span><span class="w"> </span><span class="p">}</span><span class="err">}</span><span class="w">
+</span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">endfor</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">    
+
+
+
+    </span><span class="err">About</span><span class="w">
+
+    
+
+    </span><span class="err">Page</span><span class="w"> </span><span class="mi">1</span><span class="w">
+
+    </span><span class="err">Page</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span></code></pre>
 </div>
 
